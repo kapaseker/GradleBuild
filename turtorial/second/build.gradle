@@ -1,0 +1,9 @@
+description = "this is the second projects for run"
+
+task open{
+	println "open your mouse"
+}
+
+task say(dependsOn:open){
+	println "say something"
+}

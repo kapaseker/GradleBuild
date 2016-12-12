@@ -1,0 +1,9 @@
+description = "the root project for turtorial"
+
+task first{
+	println "first task"
+}
+
+task second{
+	println "second task is good"
+}
