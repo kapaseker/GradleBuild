@@ -1,0 +1,47 @@
+task taskA {
+    doLast {
+        println "this is taskA.";
+    }
+}
+// 必须使用字符串才能不在乎顺序，否则无法进行编译
+task taskB (dependsOn:"taskC") {
+    doLast{
+        println "taskB is depended on taskC";
+    }
+}
+
+task taskC {
+    doLast{
+        println "taskC is father of taskB";
+    }
+}
+// dynamic tasks
+4.times { counter ->
+    task "task$counter" {
+        doLast{
+            println "this is task $counter";
+        }
+    }
+}
+
+task0.dependsOn task1,task3
+
+task hello {
+    doLast {
+        println "hello Earth";
+    }
+}
+
+hello.doFirst {
+    println "hello Venus";
+}
+
+hello {
+    doLast {
+        println "Hello Scorpio";
+    }
+}
+
+hello.doLast {
+    println "hello Mars";
+}
