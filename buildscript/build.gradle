@@ -45,3 +45,39 @@ hello {
 hello.doLast {
     println "hello Mars";
 }
+
+task taskProperty {
+    ext.anaName = "this is anather name a property"
+}
+
+task printProperty {
+    doLast{
+        println taskProperty.anaName;
+    }
+}
+
+//using method
+
+void say(String str){
+    println str;
+}
+
+task saySomething {
+    doLast {
+        say "i need some good food";
+    }
+}
+
+// default tasks
+defaultTasks 'clean','reBuild';
+task clean {
+    doLast {
+        println "i clean the project";
+    }
+}
+
+task reBuild {
+    doLast {
+        println "rebuild the tasks";
+    }
+}
